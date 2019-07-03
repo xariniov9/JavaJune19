@@ -1,4 +1,4 @@
-package samplePackage;
+package secondLecture;
 
 public class Class2 {
 
