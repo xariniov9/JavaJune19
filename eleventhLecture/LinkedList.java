@@ -1,7 +1,6 @@
 package eleventhLecture;
 
-
-//   https://ideone.com/KLmhMW
+// TODO reverse iterative, remove(i)
 public class LinkedList <T> {
 	
 	// nodes are part of linkedlist
@@ -17,7 +16,20 @@ public class LinkedList <T> {
 	}
 	
 	private NodeLL<T> head;
-	private NodeLL<T> tail;
+	private NodeLL<T> tail;	
+	private int length;
+	
+	public LinkedList() {
+		length = 0;
+	}
+	
+	public boolean isEmpty() {
+		return head == null;
+	}
+	
+	public int getLength() {
+		return length;
+	}
 	
 	public void addAtBeginning(T data) {
 		NodeLL<T> newHead = new NodeLL<T>(data);
@@ -26,6 +38,7 @@ public class LinkedList <T> {
 		if(tail == null) {
 			tail = head;
 		}
+		length++;
 	}
 	
 	public void addAtEnd(T data) {
@@ -36,6 +49,7 @@ public class LinkedList <T> {
 		}
 		tail.next = newTail;
 		tail = newTail;
+		length++;
 	}
 	
 	
@@ -54,6 +68,7 @@ public class LinkedList <T> {
 		if(j==i-1) {
 			newNode.next = temp.next;
 			temp.next = newNode;
+			length++;
 		}
 	}
 	
@@ -105,6 +120,38 @@ public class LinkedList <T> {
 		tail = ans.second;
 	}
 	
+	public T removeFirst() throws Exception{
+		if(head == null) {
+			throw new Exception();
+		}
+		T data = head.data;
+		head = head.next;
+		if(head == null)
+			tail = null;
+		length--;
+		return data;
+	}
+	
+	public T removeLast() throws Exception {
+		if(tail == null) {
+			throw new Exception();
+		}
+		
+		length--;
+		T data = tail.data;
+		if(head == tail) {
+			head = tail = null;
+			return data;
+		}
+		NodeLL<T> tmp = head;
+		while(tmp.next != tail) {
+			tmp = tmp.next;
+		}		
+		tail = tmp;
+		tail.next = null;
+		return data;		
+	}
+	
 	private void print(NodeLL<T> head) {
 		if(head == null) {
 			System.out.println("null");
@@ -115,7 +162,7 @@ public class LinkedList <T> {
 	}
 	
 	public void print() {
-		System.out.println(head);
+//		System.out.println(head);
 		print(head);
 	}
 }
