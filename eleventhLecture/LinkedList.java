@@ -99,8 +99,7 @@ public class LinkedList <T> {
 //		tail = temp;
 	}
 	
-	public 
- reverseImproved() {
+	public void reverseImproved() {
 		Pair<NodeLL<T>, NodeLL<T>> ans = reverseImproved(head);
 		head = ans.first;
 		tail = ans.second;
