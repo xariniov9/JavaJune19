@@ -1,6 +1,6 @@
 package twelthLecture;
 
-public class Square implements Shape, Comparable{
+public class Square implements Shape, Comparable<Square>{
 
 	int side;
 	public Square(int s) {
@@ -19,7 +19,8 @@ public class Square implements Shape, Comparable{
 	
 
 	@Override
-	public int compareTo(Object s) {
-		return getArea() - ((Square)s).getArea();
+	public int compareTo(Square s) {
+		// TODO Auto-generated method stub
+		return getArea() - s.getArea();	
 	}
 }

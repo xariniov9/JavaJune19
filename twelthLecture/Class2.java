@@ -1,5 +1,7 @@
 package twelthLecture;
 
+import eleventhLecture.LinkedList;
+
 public class Class2 {
 
 	public static void main(String[] args) {
@@ -19,6 +21,8 @@ public class Class2 {
 		
 		String str = "axyz";
 		System.out.println(str.compareTo("abc"));
+		
+		LinkedList<Square> lList = new LinkedList<>();
 	}
 
 }

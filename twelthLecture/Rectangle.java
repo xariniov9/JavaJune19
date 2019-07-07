@@ -1,6 +1,6 @@
 package twelthLecture;
 
-public class Rectangle implements Shape{
+public class Rectangle implements Shape, Comparable<Rectangle>{
 
 	int l, b;
 	public Rectangle(int l, int b) {
@@ -20,4 +20,9 @@ public class Rectangle implements Shape{
 		return 2*(l+b);
 	}
 	
+	@Override
+	public int compareTo(Rectangle s) {
+		// TODO Auto-generated method stub
+		return getArea() - s.getArea();
+	}	
 }
