@@ -1,17 +1,21 @@
 package eleventhLecture;
 
 // TODO reverse iterative, remove(i)
-public class LinkedList <T> {
+public class LinkedList <T extends Comparable<T>> {
 	
 	// nodes are part of linkedlist
 	// it does not make sense to make it public
-	private class NodeLL <T1> {
+	private class NodeLL <T1 extends Comparable<T1>> implements Comparable{
 		T1 data;
 		NodeLL<T1> next;
 		
 		public NodeLL(T1 data) {
 			this.data = data;
-			
+		}
+		
+		@Override
+		public int compareTo(Object arg0) {
+			return data.compareTo(((NodeLL<T1>)arg0).data);
 		}
 	}
 	
@@ -165,4 +169,34 @@ public class LinkedList <T> {
 //		System.out.println(head);
 		print(head);
 	}
+	
+	public void merge() {
+		NodeLL<T> h1 = head;
+		NodeLL<T> h2 = ;
+		
+		
+		h1 = merge(h1, h2);
+	}
+	
+	public NodeLL<T> merge(NodeLL<T> list1, NodeLL<T> list2) {
+		
+		return null;
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

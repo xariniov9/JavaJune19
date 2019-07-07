@@ -28,6 +28,7 @@ public class Class1 {
 		}
 		//lList.removeLast();
 		lList.print();
+		
 	}
 
 }
