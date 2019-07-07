@@ -172,7 +172,7 @@ public class LinkedList <T extends Comparable<T>> {
 	
 	public void merge() {
 		NodeLL<T> h1 = head;
-		NodeLL<T> h2 = ;
+		NodeLL<T> h2 = head.next.next.next.next;
 		
 		
 		h1 = merge(h1, h2);
