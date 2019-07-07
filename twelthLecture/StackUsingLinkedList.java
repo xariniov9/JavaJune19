@@ -1,7 +1,7 @@
 package twelthLecture;
 import eleventhLecture.LinkedList;
 
-public class StackUsingLinkedList <T> {
+public class StackUsingLinkedList <T extends Comparable<T>> {
 	private LinkedList<T> lList;
 	
 	public StackUsingLinkedList() {

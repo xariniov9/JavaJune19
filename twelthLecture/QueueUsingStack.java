@@ -1,6 +1,6 @@
 package twelthLecture;
 
-public class QueueUsingStack <T> {
+public class QueueUsingStack <T extends Comparable<T>> {
 	private StackUsingLinkedList<T> s1, s2;
 	public QueueUsingStack() {
 		s1 = new StackUsingLinkedList<>();

@@ -2,7 +2,7 @@ package twelthLecture;
 
 import eleventhLecture.LinkedList;
 
-public class QueueUsingLinkedList <T> {
+public class QueueUsingLinkedList <T extends Comparable<T>> {
 	private LinkedList<T> lList;
 	
 	public QueueUsingLinkedList() {
