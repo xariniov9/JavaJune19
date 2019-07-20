@@ -6,6 +6,7 @@ import eleventhLecture.Pair;
 
 public class BTUse {
 
+	// O(N)
 	public static int height(BTNode<Integer> node) {
 		if(node == null || (node.left == null && node.right == null))
 			return 0;
@@ -15,12 +16,14 @@ public class BTUse {
 		return 1 + Math.max(leftHeight, rightHeight);
 	}
 	
+	// O(N)
 	public static int numNodes(BTNode<Integer> node) {
 		if(node == null)
 			return 0;
 		return numNodes(node.left) + numNodes(node.right) + 1;
 	}
 	
+	//O(N)
 	public static int max(BTNode<Integer> node) {
 		if(node == null)
 			return -1000000000;
@@ -30,6 +33,7 @@ public class BTUse {
 		return Math.max(node.data,  maxFromChild);
 	}
 	
+	//O(N)
 	public static Pair<Integer, Integer> top2(BTNode<Integer> node) {
 		if(node == null) {
 			Pair<Integer, Integer> ans = new Pair<>();
@@ -54,6 +58,47 @@ public class BTUse {
 		ans.second = arr[3];
 		
 		return ans;
+	}
+	
+	public static int diameter(BTNode<Integer> root) {
+		if(root == null || (root.left == null && root.right == null)) {
+			return 0;
+		}
+		
+		int lHeight = height(root.left);
+		int rHeight = height(root.right);
+		
+		int numChild = root.left != null ? 1 : 0;
+		numChild += root.right != null ? 1 : 0;
+		
+		int d1 = lHeight + rHeight + numChild;
+		int d2 = diameter(root.left);
+		int d3 = diameter(root.right);
+
+		return Math.max(d1, Math.max(d2, d3));
+	}
+	
+	// first contains height, second contains diameter
+	public static Pair<Integer, Integer> diameterImproved(BTNode<Integer> root) {
+		if(root == null || (root.left == null && root.right == null)) {
+			return new Pair<Integer, Integer>();
+		}
+		Pair<Integer, Integer> dLeft = diameterImproved(root.left);
+		Pair<Integer, Integer> dRight = diameterImproved(root.right);
+		
+		Pair<Integer, Integer> curDiameter = new Pair<>();
+		
+		// current height
+		curDiameter.first = Math.max(dLeft.first, dRight.first) + 1;
+		
+		int numChild = root.left != null ? 1 : 0;
+		numChild += root.right != null ? 1 : 0;
+		
+		// current diameter
+		curDiameter.second = Math.max(dLeft.first + dRight.first + numChild, 
+				Math.max(dLeft.second, dRight.second));
+		
+		return curDiameter;
 	}
 	
 	public static void main(String[] args) {

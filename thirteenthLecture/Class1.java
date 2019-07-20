@@ -24,14 +24,15 @@ public class Class1 {
 		}
 	}
 	
+	// O(N)
 	public static void makeHeap() {
 		for(int root= heapSize/2; root>=0; root--) {
 			heapify(root);
 		}
 	}
 	
-	public static void heapSort() {
-		
+	// O(N log N)
+	public static void heapSort() {	
 		while(heapSize > 0) {
 			int temp = heap[0];
 			heap[0] = heap[heapSize-1];
@@ -44,6 +45,8 @@ public class Class1 {
 	}
 	
 	// TODO: increaseKey(node, val)
+	// TODO: insert element
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
